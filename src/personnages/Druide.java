@@ -17,7 +17,7 @@ public class Druide {
 	}
 
 	public String getNom() {
-		return "Mon nom est " + nom;
+		return nom;
 	}
 
 	public void parler(String texte) {
@@ -37,10 +37,10 @@ public class Druide {
 	public void faireParler() {
 		int force = preparerPotion();
 		if (force > 7) {
-			parler("J'ai preparé une super potion de force " + force);
+			parler("J'ai preparé une super potion de force "+ force+".");
 		}
 		else {
-			parler("Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force " + force);
+			parler("Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force " + force+".");
 		}
 	}
 	

@@ -53,7 +53,7 @@ public class Gaulois {
 		//System.out.println(asterix.prendreParole());
 		
 		//asterix.parler("Bonjour");
-		asterix.boirePotion(8);
+		asterix.boirePotion(9);
 		//System.out.println(asterix); verification de l'affectation pour effetPotion
 		asterix.frapper(minus);
 		
