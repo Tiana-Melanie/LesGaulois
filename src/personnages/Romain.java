@@ -28,4 +28,12 @@ public class Romain {
 			parler("J'abandonne...");
 		}
 	}
+	public static void main(String[] args) {
+		Romain obelix = new Romain("obelix",3);
+		System.out.println(obelix.getNom());
+		System.out.println(obelix.prendreParole());
+		obelix.parler("Je suis un romain");
+		obelix.recevoirCoup(8);
+		
+	}
 }
