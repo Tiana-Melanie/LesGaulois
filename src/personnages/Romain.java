@@ -13,11 +13,12 @@ public class Romain {
 		return nom;
 	}
 	
+	public String prendreParole() {
+		return "Le romain " + nom + " :";
+	}
+	
 	public void parler(String texte) {
 		System.out.println(prendreParole()+ "'"+ texte + "'");
-	}
-	private String prendreParole() {
-		return "Le romain " + nom + " :";
 	}
 	
 	public void recevoirCoup(int forceCoup) {
@@ -29,11 +30,12 @@ public class Romain {
 		}
 	}
 	public static void main(String[] args) {
-		Romain obelix = new Romain("obelix",3);
-		System.out.println(obelix.getNom());
-		System.out.println(obelix.prendreParole());
-		obelix.parler("Je suis un romain");
-		obelix.recevoirCoup(8);
+		
+		Romain Minus = new Romain("Minus", 6);
+		System.out.println(Minus.getNom());
+		System.out.println(Minus.prendreParole());
+		Minus.parler("Je suis un romain");
+		Minus.recevoirCoup(8);
 		
 	}
 }
