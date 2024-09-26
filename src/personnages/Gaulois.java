@@ -46,6 +46,7 @@ public class Gaulois {
 		Romain minus;
 		minus = new Romain("Minus", 6);
 		
+		
 		System.out.println(asterix.getNom());
 		System.out.println(asterix);
 		 
