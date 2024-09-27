@@ -13,7 +13,7 @@ public class Romain {
 		return nom;
 	}
 	
-	public String prendreParole() {
+	private String prendreParole() {
 		return "Le romain " + nom + " :";
 	}
 	
