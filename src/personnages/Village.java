@@ -8,8 +8,9 @@ public class Village {
 	private int nbVillageois=0;
 	
 
-	public Village(String nom) {
+	public Village(String nom, int nbVillageoisMaximum) {
 		this.nom = nom;
+		this.villageois = new Gaulois[nbVillageoisMaximum];
 	}
 	
 	public void setChef(Chef chef) {
@@ -19,45 +20,54 @@ public class Village {
 	public String getNom() {
 		return nom;
 	}
-	
-	public Village(int nbVillageoisMaximum) {
-		villageois = new Gaulois[nbVillageoisMaximum];
-	}
+// au lieu de l'initialisé ailleurs on peut le mettre en haut comme ça on donne le nom et la taille max
+//	public Village(int nbVillageoisMaximum) {
+//		villageois = new Gaulois[nbVillageoisMaximum];
+//	}
 	
 	public void ajouterHabitant(Gaulois gaulois) {
-		villageois[nbVillageois] = gaulois;
-		nbVillageois ++;		
+		if(nbVillageois<villageois.length){
+			villageois[nbVillageois] = gaulois;
+			nbVillageois ++;
+		}
+				
 	}
 	
 	public Gaulois trouverHabitant(int numeroVillageois) {
 		return villageois[numeroVillageois-1];
 	}
 	
-//	public void afficherVillageois() {
-//		System.out.println("Dans le village du chef" + chef.getNom() + "vivent les légendaires gaulois : ");
-//		for(int i = 0; i < nbVillageois;i++) {
-//			System.out.println("-");
-//		}
-//	}
+	public void afficherVillageois() {
+		if (chef != null) {
+			System.out.println("Dans le village du chef " + chef.getNom() + " vivent les légendaires gaulois : ");
+			for(int i = 0; i < nbVillageois;i++) {
+				System.out.println("-"+ villageois[i].getNom());
+			}
+		}
+		else {
+			System.out.println("Le village n'a pas encore de chef");
+		}
+	}
 	
 	public static void main(String[] args) {
-		Village village1=new Village(30);
-		//Gaulois gaulois = village.trouverHabitant(30);
+		Village village= new Village("Village des Irréductibles", 30);
+		//Gaulois gaulois = village.trouverHabitant(31);
 		//Index 30 out of bounds for length 30
 		
-		Chef Abraracourcix = new Chef("Abaracourcix", 6, village1);
+		Chef abraracourcix = new Chef("Abaracourcix", 6, village);
 		
-		Gaulois astérix = new Gaulois("Asterix",8);
-		village1.ajouterHabitant(astérix);
+		Gaulois astérix = new Gaulois("Astérix",8);
+		village.ajouterHabitant(astérix);
 		
-		Gaulois bob = new Gaulois("bob",8);
-		village1.ajouterHabitant(bob);
+		Gaulois obélix = new Gaulois("Obélix",25);
+		village.ajouterHabitant(obélix);
 		
 //		Gaulois gaulois =  village.trouverHabitant(1);
 //		System.out.println(gaulois);
-//		null mais on le met a 0 il trouve le gaulois
+		//null mais on le met a 0 il trouve le gaulois
 		
-//		village1.afficherVillageois();
+		village.setChef(abraracourcix);
+		village.afficherVillageois();
 		
 	}
 	
