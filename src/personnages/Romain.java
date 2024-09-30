@@ -7,6 +7,7 @@ public class Romain {
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
+		assert IsInvariantSatisfied() : "La force doit être positive";
 	}
 	
 	public String getNom() {
@@ -22,20 +23,45 @@ public class Romain {
 	}
 	
 	public void recevoirCoup(int forceCoup) {
+		//assert pour la Précondition
+		assert force >0 : "Précondition fausse ";
+		
+		int forceAvant = force;
 		force -= forceCoup;
+		
+		//assert pour la postcondition
+		assert force < forceAvant : "Post condition fausse";
+		
 		if (force >0) {
-			parler("Aie");
+			parler("Aie !");
 		}else {
 			parler("J'abandonne...");
 		}
+		
 	}
+	
+	//travail sur les invariant et postcondition
+	
+	public boolean forceRomainPositive() {
+		boolean forceRomain=true;
+		if (force > 0) {
+			return forceRomain;
+		}
+		return !(forceRomain);
+	}
+	
+	public boolean IsInvariantSatisfied() {
+		return forceRomainPositive();
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		
 		Romain Minus = new Romain("Minus", 6);
 		System.out.println(Minus.getNom());
-		System.out.println(Minus.prendreParole());
 		Minus.parler("Je suis un romain");
-		Minus.recevoirCoup(8);
+		Minus.recevoirCoup(3);
 		
 	}
 }

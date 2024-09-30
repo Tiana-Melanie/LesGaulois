@@ -62,8 +62,9 @@ public class Village {
 		Gaulois obélix = new Gaulois("Obélix",25);
 		village.ajouterHabitant(obélix);
 		
-//		Gaulois gaulois =  village.trouverHabitant(1);
-//		System.out.println(gaulois);
+		Gaulois gaulois =  village.trouverHabitant(1);
+		System.out.println(gaulois);
+		
 		//null mais on le met a 0 il trouve le gaulois
 		
 		village.setChef(abraracourcix);
