@@ -19,7 +19,7 @@ public class Scenario {
 		obelix = new Gaulois("Obelix", 25);
 		
 		Druide panoramix ;
-		panoramix = new Druide("Panoramix", 5,10,1);
+		panoramix = new Druide("Panoramix", 5,10);
 		
 		panoramix.parler("je vais aller préparer une petite potion ...");
 		panoramix.faireParler();
